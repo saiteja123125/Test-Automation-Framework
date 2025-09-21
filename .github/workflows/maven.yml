@@ -1,9 +1,8 @@
-name: Tesst Automation WorkFlow
+name: Test Automation Workflow
 
 on:
- schedule:
- -cron: 00 18 * * *
-
+  schedule:
+    - cron: '00 18 * * *'  # Runs every day at 6 PM UTC
   push:
     branches: [ "master" ]
   pull_request:
@@ -11,37 +10,38 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    
-    - uses: actions/checkout@v4
-    - name: Set up JDK 11
-      uses: actions/setup-java@v4
-      with:
-        java-version: '11'
-        distribution: 'temurin'
-        cache: maven
-        
-    - name: Running Test Automation Framework with Maveen
-      run: mvn test -X -Dbrowser=chrome
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    - name: Upload Test logs
-    if:always()
-    uses: actions/upload-artifact@v4.6.2
-    with:
-    name: Test logs
-    path: logs/
+      - name: Set up JDK 11
+        uses: actions/setup-java@v4
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
 
-    - name: Upload Test Reports
-    if:always()
-    uses: actions/upload-artifact@v4.6.2
-    with:
-    name: Test Reports
-    path: report.html
+      - name: Run Test Automation Framework with Maven
+        run: mvn test -X 
 
-     - name: Test Execution Status
-     run: echo "Test Execution Completed"
+      - name: Upload Test Logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Logs
+          path: logs/
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Test Reports
+          path: report.html
+
+
+      - name: Test Execution Status
+        run: echo "Test Execution Completed"
 
    
