@@ -17,7 +17,8 @@ import com.ui.Pages.Homepage;
 public class TestBase {
 	
 	
-	Homepage homepage;
+	protected Homepage homepage;
+	protected BrowserUtility browserUtility;
 	 org.apache.logging.log4j.Logger logger = LoggerUtility.getLogger(this.getClass()); 
 	 private boolean isLambdaTest;  //if make true run lamda test
 //	private boolean isHeadless = true;
@@ -26,8 +27,8 @@ public class TestBase {
 	@BeforeMethod(description ="Load the Homepage of the website")
 	public void setup(
 	@Optional("chrome")String browser, 
-	@Optional("false")boolean isLambdaTest, 
-	@Optional("true")boolean  isHeadless, ITestResult result) {
+	@Optional("true")boolean isLambdaTest, 
+	@Optional("false")boolean  isHeadless, ITestResult result) {
 		
 		this.isLambdaTest = isLambdaTest;
 		WebDriver lambdaDriver;
@@ -62,6 +63,6 @@ public class TestBase {
 			
 			homepage.quit();
 		}
-		homepage.quit();
+		
 	
 	}}
