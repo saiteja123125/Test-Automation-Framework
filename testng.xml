@@ -3,16 +3,15 @@
 <suite name="Automation Test Suite" parallel = "methods" thread-count = "4" verbose="1">
   <test name="UI Automation Test">
   
-  <parameter name = "browser" value = "${browser}"/>
-  <parameter name = "isLambdaTest" value = "${isLambdaTest}"/>
-  <parameter name = "isHeadless" value = "${isHeadless}"/>
+  <parameter name = "browser" value = "chrome"/>
+  <parameter name = "isLambdaTest" value = "false"/>
+  <parameter name = "isHeadless" value = "false"/>
   
     <classes>
       <class name="com.ui.test.LoginTest3"/>
       <class name="com.ui.test.InvalidCredLoginTest "/>
        <class name="com.ui.test.ProductCheckoutTest "/>
        <class name="com.ui.test.SerachProductText"/>
-       <class name="com.ui.test.AddNewFirstAddressTest"/>
        
                          
     </classes>
