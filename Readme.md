@@ -15,8 +15,7 @@ My major expertise is in Java Programming Language
 Author
 @saiteja123125
 EmailAddress: stej7002@gmail.com
-Author
-@Linked In
+@Linked :https://www.linkedin.com/in/chilaka-saiteja-497b361a9/
 
 Tech Stack
 Progrmming Language : Java 11
@@ -47,3 +46,4 @@ Faker
 LambdaTest
 Log4j
 Extent Reports
+
